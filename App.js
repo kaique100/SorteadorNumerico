@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 export default function App() {
   const [randomNumber, setRandomNumber] = useState(null);
@@ -15,7 +15,9 @@ export default function App() {
       <Text style={styles.randomNumberText}>
         {randomNumber !== null ? `Número sorteado: ${randomNumber}` : 'Nenhum número sorteado'}
       </Text>
-      <Button title="Sortear" onPress={generateRandomNumber} />
+      <TouchableOpacity style={styles.button} onPress={generateRandomNumber}>
+        <Text style={styles.buttonText}>Sortear</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -31,6 +33,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 20,
     width: 160,
+    textAlign: 'center',
+  },
+  button: {
+    backgroundColor: '#A020F0', // Cor de fundo do botão
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: '#fff', // Cor do texto do botão
+    fontSize: 18,
     textAlign: 'center',
   },
 });
